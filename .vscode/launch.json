@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CatalogoApplication",
+            "request": "launch",
+            "mainClass": "com.techgear.catalogo.CatalogoApplication",
+            "projectName": "catalogo"
+        },
+        {
+            "type": "java",
+            "name": "PagoApplication",
+            "request": "launch",
+            "mainClass": "com.techgear.pago.PagoApplication",
+            "projectName": "pago"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UsuarioApplication<usuario>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.techgear.usuario.UsuarioApplication",
+            "projectName": "usuario",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
