@@ -51,17 +51,15 @@ public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
         Usuario usuario = usuarioService.autenticar(correo, contrasena);
         
         if (usuario != null) {
-            // ✅ Respuesta mínima sin problemas de conversión
             Map<String, Object> response = new HashMap<>();
             response.put("success", true);
             response.put("message", "Login exitoso");
             
-            // Solo los campos esenciales
             Map<String, Object> userData = new HashMap<>();
-            userData.put("id", 1);  // Temporal - después lo obtienes del usuario
-            userData.put("nombre", usuario.getNombre());   // 👍 AQUÍ VA EL NOMBRE REAL
+            userData.put("id", usuario.getId());
+            userData.put("nombre", usuario.getNombre());  // ← Esto funcionará si tienes getter
             userData.put("email", correo);
-            userData.put("rol", "usuario");
+            userData.put("rol", usuario.getRol() != null ? usuario.getRol().getNombre() : "usuario");
             
             response.put("usuario", userData);
             return ResponseEntity.ok(response);
@@ -72,6 +70,7 @@ public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
         }
         
     } catch (Exception e) {
+        e.printStackTrace();
         return ResponseEntity.internalServerError().body(
             Map.of("success", false, "message", "Error en el servidor")
         );
