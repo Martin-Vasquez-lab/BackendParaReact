@@ -59,7 +59,7 @@ public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
             // Solo los campos esenciales
             Map<String, Object> userData = new HashMap<>();
             userData.put("id", 1);  // Temporal - después lo obtienes del usuario
-            userData.put("nombre", "Usuario Autenticado");
+            userData.put("nombre", usuario.getNombre());   // 👍 AQUÍ VA EL NOMBRE REAL
             userData.put("email", correo);
             userData.put("rol", "usuario");
             
