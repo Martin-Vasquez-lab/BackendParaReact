@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Rol {
 
     @Id
@@ -24,4 +23,5 @@ public class Rol {
 
     @Column(nullable = false, unique = true)
     private String nombre;
+
 }
